@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - CTF Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sprawdza, czy okno znajduje się w ramce iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Włącza podświetlanie składni:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js nie został załadowany!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Wyzwanie #545</h3>
+                            <h2 class="section-title">Baby DPDK</h2>
+                            <p>
+Gdzie podziały się moje pakiety sieciowe?
+<br /><br />
+W tym zadaniu proponujemy zabawę z DPDK.
+<br /><br />
+Czy potrafisz odnaleźć zawartość pakietów sieciowych odebranych na interfejsie sieciowym?
+<br /><br />
+<strong>Uwagi:</strong>
+<br /><br />
+<ul>
+    <li>Aby mieć działające <code>Ctrl-C</code>, możesz użyć <code>stty -cooked -echo</code> w swoim terminalu po przeniesieniu połączenia z zadaniem wykonanego za pomocą <code>nc</code> w tło.</li>
+    <li>Aby odtworzyć zadanie lokalnie: Rozpakuj archiwum za pomocą <code>tar xf babydpdk.tar.xz</code>. Uruchom kontener Docker za pomocą <code>docker compose up --build</code>. Połącz się z lokalnym wyzwaniem za pomocą <code>nc localhost 4000</code>.</li>
+    <li>Aby połączyć się z maszyną, użyj hasła „user”</li>
+</ul>
+                            </p>
+                            <h4>Plik do zbadania:</h4>
+                            <p>../files/babydpdk.tar.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Oficjalny link:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/">https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/</a>
+                                <br />
+                                Autor: gte
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Nauka</h3>
+                            <h2 class="section-title">Dokumentacja i Filmy</h2>
+                            <p class="section-subtitle">
+                                Brak dokumentacji w tej chwili
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Pomoc</h3>
+                            <h2 class="section-title">Wskazówki i podpowiedzi</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Wątek na Discordzie</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Przewiń do góry" title="Przejdź na początek strony"></a>
+    </div>
+</body>
+
+</html>

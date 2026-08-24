@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Các thử thách CTF của Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Kiểm tra xem cửa sổ có nằm trong iframe không
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Kích hoạt tô màu cú pháp:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js chưa được tải!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Thử thách #545</h3>
+                            <h2 class="section-title">Baby DPDK</h2>
+                            <p>
+Nhưng các gói mạng của tôi đã đi đâu rồi?
+<br /><br />
+Trong thử thách này, chúng tôi mời bạn trải nghiệm với DPDK.
+<br /><br />
+Liệu bạn có thể tìm lại nội dung của các gói mạng nhận được trên giao diện mạng không?
+<br /><br />
+<strong>Lưu ý:</strong>
+<br /><br />
+<ul>
+    <li>Để sử dụng được <code>Ctrl-C</code>, bạn có thể dùng lệnh <code>stty -cooked -echo</code> trên terminal sau khi đã chuyển kết nối đến thử thách bằng <code>nc</code> vào chế độ nền.</li>
+    <li>Để dựng lại thử thách cục bộ: Giải nén tệp lưu trữ bằng <code>tar xf babydpdk.tar.xz</code>. Khởi chạy Docker container bằng <code>docker compose up --build</code>. Kết nối đến thử thách cục bộ bằng <code>nc localhost 4000</code>.</li>
+    <li>Để đăng nhập vào máy, hãy sử dụng mật khẩu “user”</li>
+</ul>
+                            </p>
+                            <h4>Tệp cần phân tích:</h4>
+                            <p>../files/babydpdk.tar.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Liên kết chính thức:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/">https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/</a>
+                                <br />
+                                Tác giả: gte
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Học tập</h3>
+                            <h2 class="section-title">Tài liệu và Video</h2>
+                            <p class="section-subtitle">
+                                Hiện tại chưa có tài liệu
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Trợ giúp</h3>
+                            <h2 class="section-title">Lời khuyên và manh mối</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Chủ đề trên Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Cuộn lên đầu trang" title="Trở về đầu trang web"></a>
+    </div>
+</body>
+
+</html>

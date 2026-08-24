@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Cyrhades CTF</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 창이 iframe 내에 있는지 확인
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // 구문 강조 활성화:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js 로드되지 않음!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>챌린지 #545</h3>
+                            <h2 class="section-title">Baby DPDK</h2>
+                            <p>
+내 네트워크 패킷은 어디로 사라졌을까요?
+<br /><br />
+이번 챌린지에서는 DPDK를 다뤄보도록 하겠습니다.
+<br /><br />
+네트워크 인터페이스에서 수신된 네트워크 패킷의 내용을 찾아낼 수 있습니까?
+<br /><br />
+<strong>참고사항:</strong>
+<br /><br />
+<ul>
+    <li>작동하는 <code>Ctrl-C</code>를 사용하려면, <code>nc</code>로 맺은 챌린지 연결을 백그라운드로 전환한 후 터미널에서 <code>stty -cooked -echo</code>를 실행하면 됩니다.</li>
+    <li>로컬에서 챌린지를 재현하려면: <code>tar xf babydpdk.tar.xz</code> 명령어로 아카이브의 압축을 풉니다. <code>docker compose up --build</code>로 Docker 컨테이너를 시작합니다. <code>nc localhost 4000</code>으로 로컬 챌린지에 연결합니다.</li>
+    <li>머신에 접속하려면 비밀번호 “user”를 사용하세요.</li>
+</ul>
+                            </p>
+                            <h4>분석할 파일:</h4>
+                            <p>../files/babydpdk.tar.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                공식 링크:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/">https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/</a>
+                                <br />
+                                작성자: gte
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>학습</h3>
+                            <h2 class="section-title">문서 및 동영상</h2>
+                            <p class="section-subtitle">
+                                현재 등록된 문서가 없습니다
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>도움말</h3>
+                            <h2 class="section-title">팁 및 힌트</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord 스레드</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="페이지 맨 위로 이동" title="페이지 상단으로 이동"></a>
+    </div>
+</body>
+
+</html>

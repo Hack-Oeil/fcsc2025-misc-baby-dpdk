@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - CTF от Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="./assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Проверяет, находится ли окно в iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+            // Включает подсветку синтаксиса:
+            if (window.hljs) {
+                hljs.highlightAll();
+            } else {
+                console.error("Highlight.js не загружен!");
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Челлендж #545</h3>
+                            <h2 class="section-title">Baby DPDK</h2>
+                            <p>
+Куда же делись мои сетевые пакеты?
+<br /><br />
+В этом задании мы предлагаем вам поработать с DPDK.
+<br /><br />
+Сможете ли вы восстановить содержимое сетевых пакетов, полученных на сетевом интерфейсе?
+<br /><br />
+<strong>Примечания:</strong>
+<br /><br />
+<ul>
+    <li>Чтобы работал <code>Ctrl-C</code>, вы можете использовать команду <code>stty -cooked -echo</code> в терминале после отправки соединения с челленджем, установленного через <code>nc</code>, в фоновый режим.</li>
+    <li>Для локального воспроизведения задания: Распакуйте архив с помощью <code>tar xf babydpdk.tar.xz</code>. Запустите Docker-контейнер с помощью <code>docker compose up --build</code>. Подключитесь к локальному заданию с помощью <code>nc localhost 4000</code>.</li>
+    <li>Для входа на машину используйте пароль «user»</li>
+</ul>
+                            </p>
+                            <h4>Файл для анализа:</h4>
+                            <p>../files/babydpdk.tar.xz</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>FCSC 2025</h3>
+                            <h2 class="section-title">Hackropole</h2>
+                            <p class="section-subtitle">
+                                Официальная ссылка:
+                                <a target="_blank" href="https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/">https://hackropole.fr/fr/challenges/misc/fcsc2025-misc-baby-dpdk/</a>
+                                <br />
+                                Автор: gte
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Обучение</h3>
+                            <h2 class="section-title">Документация и видео</h2>
+                            <p class="section-subtitle">
+                                На данный момент документации нет
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="row clearfix">
+                    <div class="col-1">
+                        <div class="section-heading">
+                            <h3>Помощь</h3>
+                            <h2 class="section-title">Советы и подсказки</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Ветка в Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;"
+            aria-label="Вернуться наверх" title="Вернуться в начало страницы"></a>
+    </div>
+</body>
+
+</html>
